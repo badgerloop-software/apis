@@ -12,7 +12,8 @@
 	<body>
 		<h1>Badgerloop APIs</h1>
 		<p>Test. Test commit. <?php echo "Hello from PHP!"; ?></p>
+		<hr>
+		<?php include 'database.php'; ?>
 	</body>
-
 </html>
 
