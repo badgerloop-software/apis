@@ -1,0 +1,1 @@
+INSERT INTO `website-data`.`member` (`uid`,`eppn`, `position`) VALUES ("1","1", 2);

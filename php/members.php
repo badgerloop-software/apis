@@ -1,14 +1,18 @@
 <?php
 require_once 'database.php';
 
-$tier_query = "SELECT name, value FROM `tier`;";
-if ($result = $conn->query($tier_query)) {
+$member_query = "SELECT uid, eppn, position FROM `member`;";
+if ($result = $conn->query($member_query)) {
+
+    $data = array();
 
     while ($row = $result->fetch_object()) {
         $data[] = $row;
-        var_dump($row);
-        echo "<br>";
     }
+
+    $json = json_encode($data);
+
+    echo $json;
 
     $result->close();
 }
