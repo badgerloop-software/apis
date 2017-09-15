@@ -7,7 +7,7 @@ include 'database.php';
 <md-tabs md-dynamic-height md-stretch-tabs="always" md-center-tabs="true" style="padding-top:1em">
 	<md-tab label="Member Data">
 		<md-content md-whiteframe="9" class="pad">
-			<?php include 'members.php'; ?>
+			<?php include 'tiers.php'; ?>
 		</md-content>
 	</md-tab>
 	<md-tab label="Tab II">

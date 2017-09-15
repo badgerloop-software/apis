@@ -1,7 +1,7 @@
 <?php
 require_once 'database.php';
 
-$member_query = "SELECT uid, eppn, position FROM `member`;";
+$member_query = "SELECT name, level FROM `position`;";
 if ($result = $conn->query($member_query)) {
 
     $data = array();
