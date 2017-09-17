@@ -1,7 +1,8 @@
 <?php
+header('Access-Control-Allow-Origin: *');
 require_once 'database.php';
 
-$member_query = "SELECT a.name as `area_name`, t.name, t.description FROM `area` a, `team` t where a.id = t.area and a.name = '" . $_GET['area'] . "'";
+$member_query = "SELECT a.name as `area_name`, t.name, t.description FROM `area` a, `team` t where a.id = t.area";
 if ($result = $conn->query($member_query)) {
 
 	$data = array();
@@ -15,5 +16,6 @@ if ($result = $conn->query($member_query)) {
 	echo $json;
 
 	$result->close();
+
 }
 ?>
