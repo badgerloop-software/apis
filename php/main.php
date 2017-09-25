@@ -12,10 +12,15 @@ error_reporting(-1);
 <md-tabs md-dynamic-height md-stretch-tabs="always" md-center-tabs="true" style="padding-top:1em">
 	<md-tab label="Member Data">
 		<md-content md-whiteframe="9" class="pad">
+			<h2>Tiers</h2>
 			<?php require_once 'tiers.php'; ?><br><hr><br>
+			<h2>Members</h2>
 			<?php require_once 'members.php'; ?><br><hr><br>
+			<h2>Positions</h2>
 			<?php require_once 'positions.php'; ?><br><hr><br>
+			<h2>Areas</h2>
 			<?php require_once 'area.php'; ?><br><hr><br>
+			<h2>Team</h2>
 			<?php require_once 'team.php'; ?>
 		</md-content>
 	</md-tab>
