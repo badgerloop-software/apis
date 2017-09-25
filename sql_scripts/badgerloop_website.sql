@@ -32,20 +32,43 @@ CREATE TABLE IF NOT EXISTS `website-data`.`position` (
 );
 
 -- -----------------------------------------------------
+-- Table `website-data`.`year`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `website-data`.`year` (
+	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
+	`name` VARCHAR(45) NOT NULL,
+	`timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
+
+-- -----------------------------------------------------
 -- Table `website-data`.`member`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `website-data`.`member` ;
-
 CREATE TABLE IF NOT EXISTS `website-data`.`member` (
 	`id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY UNIQUE,
 	`uid` VARCHAR(45) NOT NULL,
 	`eppn` VARCHAR(45) NOT NULL UNIQUE,
+	`first_name` VARCHAR(45) NOT NULL,
+	`last_name` VARCHAR(45) NOT NULL,
+	`email` VARCHAR(45) NOT NULL,
+	`headshot` VARCHAR(45) NOT NULL,
+	`major` INT UNSIGNED NOT NULL,
+	`year` INT UNSIGNED NOT NULL,
 	`position` INT UNSIGNED NULL,
 	`timestamp` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 	INDEX `FK_member_position_idx` (`position` ASC),
 	CONSTRAINT `FK_member_position`
 		FOREIGN KEY (`position`)
 		REFERENCES `website-data`.`position` (`id`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+	CONSTRAINT `FK_member_major`
+		FOREIGN KEY (`major`)
+		REFERENCES `website-data`.`major` (`id`)
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION,
+	CONSTRAINT `FK_member_year`
+		FOREIGN KEY (`year`)
+		REFERENCES `website-data`.`year` (`id`)
 		ON DELETE NO ACTION
 		ON UPDATE NO ACTION
 );
