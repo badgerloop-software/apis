@@ -1,21 +1,8 @@
 <?php
-header('Access-Control-Allow-Origin: *');
-require_once 'database.php';
 
-$member_query = "SELECT a.name as `area_name`, t.name, t.description FROM `area` a, `team` t where a.id = t.area";
-if ($result = $conn->query($member_query)) {
+require_once 'classes/WebsiteData.php';
 
-	$data = array();
+$db = new WebsiteData();
+$json = json_encode($db->getAreas());
+echo $json;
 
-	while ($row = $result->fetch_object()) {
-		$data[] = $row;
-	}
-
-	$json = json_encode($data);
-
-	echo $json;
-
-	$result->close();
-
-}
-?>
