@@ -1,19 +1,8 @@
 <?php
-require_once 'database.php';
 
-$tier_query = "SELECT name, value FROM `tier`;";
-if ($result = $conn->query($tier_query)) {
-	$data = array();
+require_once 'classes/WebsiteData.php';
 
-	while ($row = $result->fetch_object()) {
-		$data[] = $row;
-	}
+$db = new WebsiteData();
+$json = json_encode($db->getTiers());
+echo $json;
 
-	$json = json_encode($data);
-
-	echo $json;
-
-	$result->close();
-}
-
-?>
