@@ -1,20 +1,8 @@
 <?php
-require_once 'database.php';
 
-$member_query = "SELECT name, level FROM `position`;";
-if ($result = $conn->query($member_query)) {
+require_once 'classes/WebsiteData.php';
 
-    $data = array();
+$db = new WebsiteData();
+$json = json_encode($db->getPositions());
+echo $json;
 
-    while ($row = $result->fetch_object()) {
-        $data[] = $row;
-    }
-
-    $json = json_encode($data);
-
-    echo $json;
-
-    $result->close();
-}
-
-?>
