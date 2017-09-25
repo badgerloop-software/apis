@@ -50,6 +50,7 @@ CREATE TABLE IF NOT EXISTS `website-data`.`member` (
 	`first_name` VARCHAR(45) NOT NULL,
 	`last_name` VARCHAR(45) NOT NULL,
 	`email` VARCHAR(45) NOT NULL,
+	`linkedin` VARCHAR(255) NOT NULL,
 	`headshot` VARCHAR(45) NOT NULL,
 	`major` INT UNSIGNED NOT NULL,
 	`year` INT UNSIGNED NOT NULL,
