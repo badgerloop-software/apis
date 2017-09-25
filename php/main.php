@@ -15,7 +15,8 @@ error_reporting(-1);
 			<?php require_once 'tiers.php'; ?><br><hr><br>
 			<?php require_once 'members.php'; ?><br><hr><br>
 			<?php require_once 'positions.php'; ?><br><hr><br>
-			<?php require_once 'area.php'; ?>
+			<?php require_once 'area.php'; ?><br><hr><br>
+			<?php require_once 'team.php'; ?>
 		</md-content>
 	</md-tab>
 	<md-tab label="Tab II">
