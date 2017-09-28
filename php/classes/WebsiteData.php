@@ -11,7 +11,7 @@ class WebsiteData {
 		$cred = new Secrets();
 		$this->conn = new mysqli($cred->servername, $cred->username, $cred->password, $cred->schema);
 		if ($this->conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
+			die("Connection failed: " . $this->conn->connect_error);
 		}
 	}
 
@@ -45,6 +45,10 @@ class WebsiteData {
 
 	function getTeam() {
 		return $this->query(Queries::team);
+	}
+
+	public function getMemberTier() {
+		return $this->query(sprintf(Queries::memberTier,$_GET['email']));
 	}
 }
 
