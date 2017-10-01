@@ -8,8 +8,7 @@ class WebsiteData {
 	private $conn;
 
 	function __construct() {
-		$cred = new Secrets();
-		$this->conn = new mysqli($cred->servername, $cred->username, $cred->password, $cred->schema);
+		$this->conn = new mysqli(Secrets::SERVERNAME, Secrets::USERNAME, Secrets::PASSWORD, Secrets::SCHEMA);
 		if ($this->conn->connect_error) {
 			die("Connection failed: " . $this->conn->connect_error);
 		}
@@ -17,7 +16,7 @@ class WebsiteData {
 
 	function __destruct() { $this->conn->close(); }
 
-	function query($str) {
+	private function query($str) {
 		$data = array();
 		if ($result = $this->conn->query($str)) {
 			while ($row = $result->fetch_object())
@@ -27,28 +26,28 @@ class WebsiteData {
 		return $data;
 	}
 
-	function getTiers() {
-		return $this->query(Queries::tier);
+	public function getTiers() {
+		return $this->query(Queries::TIER);
 	}
 
-	function getAreas() {
-		return $this->query(Queries::area);
+	public function getAreas() {
+		return $this->query(Queries::AREA);
 	}
 
-	function getMembers() {
-		return $this->query(Queries::member);
+	public function getMembers() {
+		return $this->query(Queries::MEMBER);
 	}
 
-	function getPositions() {
-		return $this->query(Queries::position);
+	public function getPositions() {
+		return $this->query(Queries::POSITION);
 	}
 
-	function getTeam() {
-		return $this->query(Queries::team);
+	public function getTeam() {
+		return $this->query(Queries::TEAM);
 	}
 
 	public function getMemberTier() {
-		return $this->query(sprintf(Queries::memberTier,$_GET['email']));
+		return $this->query(sprintf(Queries::MEMBER_TIER, $_GET['email']));
 	}
 
 	public function getSponsors() {
