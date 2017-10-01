@@ -50,5 +50,9 @@ class WebsiteData {
 	public function getMemberTier() {
 		return $this->query(sprintf(Queries::memberTier,$_GET['email']));
 	}
+
+	public function getSponsors() {
+		return $this->query(Queries::sponsors);
+	}
 }
 
