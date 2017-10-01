@@ -23,6 +23,8 @@ $no_header = true;
 			<?php require_once 'area.php'; ?><br><hr><br>
 			<h2>Team</h2>
 			<?php require_once 'team.php'; ?>
+			<h2>Sponsors</h2>
+			<?php require_once 'sponsors.php.php'; ?>
 		</md-content>
 	</md-tab>
 	<md-tab label="Tab II">
