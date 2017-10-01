@@ -24,7 +24,7 @@ $no_header = true;
 			<h2>Team</h2>
 			<?php require_once 'team.php'; ?>
 			<h2>Sponsors</h2>
-			<?php require_once 'sponsors.php.php'; ?>
+			<?php require_once 'sponsors.php'; ?>
 		</md-content>
 	</md-tab>
 	<md-tab label="Tab II">
