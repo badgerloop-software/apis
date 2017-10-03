@@ -29,7 +29,7 @@ $no_header = true;
 	</md-tab>
 	<md-tab label="Tab II">
 		<md-content md-whiteframe="9" class="pad">
-			Sample
+			Test commit.
 		</md-content>
 	</md-tab>
 	<md-tab label="Tab III">
