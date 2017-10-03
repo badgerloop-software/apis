@@ -7,6 +7,6 @@ if (!$no_header)
 require_once 'classes/WebsiteData.php';
 
 $db = new WebsiteData();
-$json = json_encode($db->getTeam());
+$json = json_encode($db->getMemberTier());
 echo $json;
 

@@ -1,75 +1,57 @@
 <?php
 
 require_once 'Secrets.php';
+require_once 'Queries.php';
 
 class WebsiteData {
 
 	private $conn;
 
 	function __construct() {
-		$cred = new Secrets();
-		$this->conn = new mysqli($cred->servername, $cred->username, $cred->password, $cred->schema);
+		$this->conn = new mysqli(Secrets::SERVERNAME, Secrets::USERNAME, Secrets::PASSWORD, Secrets::SCHEMA);
 		if ($this->conn->connect_error) {
-			die("Connection failed: " . $conn->connect_error);
+			die("Connection failed: " . $this->conn->connect_error);
 		}
 	}
 
-	function __destruct() {
-		$this->conn->close();
-	}
+	function __destruct() { $this->conn->close(); }
 
-	function getTiers() {
-
+	private function query($str) {
 		$data = array();
-
-		if ($result = $this->conn->query("SELECT name, value FROM `tier`;")) {
+		if ($result = $this->conn->query($str)) {
 			while ($row = $result->fetch_object())
 				$data[] = $row;
 			$result->close();
 		}
-
 		return $data;
 	}
 
-	function getAreas() {
-
-		$data = array();
-
-		if ($result = $this->conn->query("SELECT a.name as `area_name`, t.name, t.description FROM `area` a, `team` t where a.id = t.area")) {
-			while ($row = $result->fetch_object())
-				$data[] = $row;
-			$result->close();
-		}
-
-		return $data;
+	public function getTiers() {
+		return $this->query(Queries::TIER);
 	}
 
-	function getMembers() {
-
-		$data = array();
-
-		$member_query = "SELECT uid, eppn, position FROM `member`;";
-		if ($result = $this->conn->query($member_query)) {
-			while ($row = $result->fetch_object())
-				$data[] = $row;
-			$result->close();
-		}
-
-		return $data;
+	public function getAreas() {
+		return $this->query(Queries::AREA);
 	}
 
-	function getPositions() {
+	public function getMembers() {
+		return $this->query(Queries::MEMBER);
+	}
 
-		$data = array();
+	public function getPositions() {
+		return $this->query(Queries::POSITION);
+	}
 
-		$member_query = "SELECT name, level FROM `position`;";
-		if ($result = $this->conn->query($member_query)) {
-			while ($row = $result->fetch_object())
-				$data[] = $row;
-			$result->close();
-		}
+	public function getTeam() {
+		return $this->query(Queries::TEAM);
+	}
 
-		return $data;
+	public function getMemberTier() {
+		return $this->query(sprintf(Queries::MEMBER_TIER, $_GET['email']));
+	}
+
+	public function getSponsors() {
+		return $this->query(Queries::SPONSORS);
 	}
 }
 
