@@ -1,0 +1,1 @@
+INSERT INTO `website-data`.`position` (`name`,`level`) VALUES ("Website Lead","1");

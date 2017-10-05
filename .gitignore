@@ -1,4 +1,7 @@
 *.bak
 *.swp
 db_cred.php
+Secrets.php
+php/db_cred.php
+.idea/
 

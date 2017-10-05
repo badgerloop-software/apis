@@ -1,0 +1,1 @@
+INSERT INTO `website-data`.`team` (`name`,`supervisor`, `area`, `description`) VALUES ("Software","1", "3", "Test Description");
