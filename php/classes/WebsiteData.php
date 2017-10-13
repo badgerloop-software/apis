@@ -53,5 +53,9 @@ class WebsiteData {
 	public function getSponsors() {
 		return $this->query(Queries::SPONSORS);
 	}
+
+	public function getMedia() {
+		return $this->query(Queries::MEDIA);
+	}
 }
 
