@@ -1,1 +1,0 @@
-INSERT INTO `website-data`.`team_majors` (`team`,`major`) VALUES (1, 1);

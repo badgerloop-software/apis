@@ -38,4 +38,3 @@ $no_header = true;
 		</md-content>
 	</md-tab>
 </md-tabs>
-
